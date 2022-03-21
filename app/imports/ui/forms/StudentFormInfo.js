@@ -13,6 +13,8 @@ const StudentFormSchema = new SimpleSchema({
   hobbies: { label: 'Hobbies', type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: DataValues.hobbies },
   level: { label: 'Level', type: String, allowedValues: DataValues.levels, defaultValue: DataValues.levels[0] },
+  instructor: { label: 'Instructor', type: String, allowedValues: DataValues.instructors,
+    defaultValue: DataValues.instructors[0] },
   gpa: { label: 'GPA', type: String, allowedValues: gpaValues },
   major: { label: 'Major', type: String, allowedValues: DataValues.majors },
   enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },

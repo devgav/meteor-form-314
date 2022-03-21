@@ -23,8 +23,8 @@ class CreateStudent extends React.Component {
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
     let insertError;
-    const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
-    StudentData.insert({ name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major },
+    const { name, email, bio, level, gpa, enrolled, hobbies, major, instructor } = data;
+    StudentData.insert({ name, email, bio, level, instructor, gpa: gpa2Number(gpa), hobbies, major },
       (error) => { insertError = error; });
     if (insertError) {
       swal('Error', insertError.message, 'error');
@@ -53,6 +53,7 @@ class CreateStudent extends React.Component {
               <Form.Group widths={'equal'}>
                 <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
                 <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
+                <SelectField name='instructor' showInlineError={true} />
               </Form.Group>
               <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
               <Form.Group widths={'equal'}>
